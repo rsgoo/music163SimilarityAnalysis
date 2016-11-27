@@ -1,0 +1,23 @@
+body{
+}
+
+.marginTop20{
+  margin-top:20px;
+}
+.marginTop10{
+  margin-top:10px;
+}
+.div1{
+}
+a:hover{
+  text-decoration: none;
+}
+.height25{
+  height: 25px;
+  line-height: 25px;
+  text-indent: 12px;
+  font-size: 1.15em;
+}
+.font12{
+  font-size: 12px;
+}
