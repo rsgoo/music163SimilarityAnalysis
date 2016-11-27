@@ -27,7 +27,6 @@
   $url1DisplayInfo = $songList->similarDisplay($url1Per);
   $url2DisplayInfo = $songList->similarDisplay($url2Per);
   $unionDisplayInfo= $songList->similarDisplay($simiDis);
-
 ?>
 
 <!DOCTYPE html>
