@@ -4,10 +4,10 @@ class PlayList{
 
   public function Analysis ($url, $store=false) {
     $originUrl = $url;
-    $dir = "./public/";
-    if (!file_exists($dir)) {
-        mkdir($dir);
-    }
+    $dir = "public/";
+    // if (!file_exists($dir)) {
+    //     mkdir($dir);
+    // }
     //为什么要用两次explode是因为url后也许还有参数
     $firstName = explode("?", $originUrl);
     $secondName= $firstName[1];
@@ -15,8 +15,8 @@ class PlayList{
     $lastName  = $ThirdName[1];                                //最后保存内容的文件名
     $url       = str_replace("#/","", $originUrl);
     $urlContent= file_get_contents($url);
-    file_put_contents($dir.$lastName.".txt", $urlContent);
-    $str  = file_get_contents($dir.$lastName.".txt");
+    file_put_contents("saestor://".$dir.$lastName.".txt", $urlContent);
+    $str  = file_get_contents("saestor://".$dir.$lastName.".txt");
 
     //匹配歌单名称
     //<title>武侠音乐系列第二部之思情篇（截取版） - 网易云音乐</title>
@@ -58,9 +58,9 @@ class PlayList{
     $userSongs['username'] = $user_name;          //用户名称
     $userSongs['playlistname'] = $listName;       //歌单名称
     $userSongs['playlistid']   = $lastName;       //歌单id
-    if (!$store) {
-        unlink($dir.$lastName.".txt");
-    }
+    // if (!$store) {
+    //     unlink($dir.$lastName.".txt");
+    // }
     return $userSongs;
 
   }

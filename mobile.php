@@ -3,8 +3,7 @@
   require_once('./playlist.php');
 
   $url1 = isset($_REQUEST['url1'])?$_REQUEST['url1']:"http://music.163.com/#/playlist?id=18366105";
-  $url2 = isset($_REQUEST['url2'])?$_REQUEST['url2']:"http://music.163.com/#/playlist?id=4991190";
-
+  $url2 = isset($_REQUEST['url2'])?$_REQUEST['url2']:"http://music.163.com/#/playlist?id=8009";
   $songList = new PlayList();
   $listUrl1 = $songList->Analysis($url1);
   $listUrl2 = $songList->Analysis($url2);
@@ -74,17 +73,17 @@
  <body>
    <div class="container">
      <div class="div1 ">
-       <form id="signupForm" class="form-horizontal marginTop20" action="index.php" method="post" role="form" >
+       <form id="signupForm" class="form-horizontal marginTop20" action="mobile.php" method="post" role="form" >
        <div class="form-group">
          <label for="firstname" class="col-sm-2 control-label pull-left">歌单一URL:</label>
-         <div class="col-sm-5">
-           <input required type="music163url" name="url1" class="form-control black" id="firstname" placeholder="歌单一URL链接地址">
+         <div class="col-sm-6">
+           <input required type="music163url" name="url1" class="form-control black" id="firstname" value="http://music.163.com/#/playlist?id=?">
          </div>
        </div>
        <div class="form-group">
          <label for="lastname" class="col-sm-2 control-label">歌单二URL:</label>
-         <div class="col-sm-5">
-           <input required type="music163url" name="url2" class="form-control black" id="lastname" placeholder="歌单二URL链接地址">
+         <div class="col-sm-6">
+           <input required type="music163url" name="url2" class="form-control black" id="lastname" value="http://music.163.com/#/playlist?id=?">
          </div>
        </div>
        <div class="form-group">
@@ -94,8 +93,8 @@
        </div>
        </form>
      </div>
-     <h4 class="col-sm-offset-1">分析结果</h4>
-     <div class="div2 marginTop20 col-sm-offset-1">
+     <h4 class="">分析结果</h4>
+     <div class="div2 marginTop20">
        <div>
            <a href="http://music.163.com/#/playlist?id=<?php echo $listUrl1['playlistid']; ?>" target="_blank">
               <button class="btn">歌单一名称：<?php echo $listUrl1['playlistname'];?></button>
@@ -114,7 +113,7 @@
          </div>
        </div>
      </div>
-     <div class="div2 marginTop20 col-sm-offset-1">
+     <div class="div2 marginTop20">
        <div>
            <a href="http://music.163.com/#/playlist?id=<?php echo $listUrl2['playlistid'];?>" target="_blank">
               <button class="btn">歌单二名称：<?php echo $listUrl2['playlistname'];?></button>
@@ -133,7 +132,7 @@
          </div>
        </div>
      </div>
-     <div class="div2 marginTop20 col-sm-offset-1">
+     <div class="div2 marginTop20">
        <div>
          <button class="btn">
            共同收藏歌曲数量：<?php echo  $intersectNum;?>首
@@ -149,14 +148,12 @@
          </div>
        </div>
      </div>
-     <div class="div3 col-sm-4  col-sm-offset-1" style="text-indent:-5px;">
+     <div class="div3 col-sm-4" style="text-indent:-5px;">
        <h4>共同音乐列表<small style="color:#d9534f">&nbsp;(注：如无法播放可能是因为版权不允许)</small></h4>
        <?php
          foreach ($intersect as $key=>$value) {
            echo "<div>";
-             echo "<span>";
-               echo "<embed src='http://music.163.com/style/swf/widget.swf?sid={$key}&type=2&auto=0&width=320&height=66' width='340' height='86'  allowNetworking='all'></embed>";
-             echo "</span>";
+               echo "<p class='text-primary'><a href='http://music.163.com/#/song?id={$key}'><span class='glyphicon glyphicon-music'></span>{$value}</a></p>";
            echo '</div>';
          }
         ?>
