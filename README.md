@@ -12,7 +12,12 @@
 
 **安装/使用**：
 
-> clone https://github.com/inscode/music163SimilarityAnalysis.git 到web目录下即可使用
+>1: clone https://github.com/inscode/music163SimilarityAnalysis.git 到web目录下
+
+>2：在浏览器中进入music163SimilarityAnalysis，如何两个两个你需要比较的歌单url即可
+
+！[](https://static.oschina.net/uploads/img/201611/28190241_fRgv.png "在这里输入图片标题")
+
 
 **程序效果**
-![image](https://static.oschina.net/uploads/img/201611/28184148_rdMY.png)
+![](https://static.oschina.net/uploads/img/201611/28184148_rdMY.png)
