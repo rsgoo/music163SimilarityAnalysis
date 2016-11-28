@@ -1,6 +1,6 @@
 <?php
 
-  error_reporting(E_ALL & ~E_NOTICE);
+  // error_reporting(E_ALL & ~E_NOTICE);
   require_once('./playlist.php');
   require_once('./libs/Smarty.class.php');
   $smarty = new Smarty();
@@ -9,45 +9,10 @@
   $smarty->template_dir   = "tpl";          //html模板地址
   $smarty->compile_dir    = "template_c";   //编译生成的文件
   $smarty->cache_dir      = "cache";        //缓存
-  $smarty->caching        = true;           //开启缓存
-  $smarty->cache_lifetime = 120;            //缓存时间
-
-  /*
-  if(!isset($_POST['url1']) || empty($_POST['url1'])){
-    header("Location: test.html?ecode=ue1");
-    exit;
-  }
-
-  if(!isset($_POST['url2']) || empty($_POST['url2'])){
-    header("Location: test.html?ecode=ue2");
-    exit;
-  }
-
-  $url1 = $_POST['url1'];
-  $url2 = $_POST['url2'];
-  $patt = '/http:\/\/music\.163\.com\/#\/playlist\?id=[1-9]{1,}[0-9]{1,}/';
-  preg_match($patt, $url1, $match);
-  if (count($match[0])<1) {
-      header("Location: test.html?ecode=ur1");
-      exit;
-  } else {
-      $url1 = $match[0];
-      setcookie('url1', $url1, time()+3600);
-  }
-  preg_match($patt, $url2, $match);
-  if (count($match[0])<1) {
-      header("Location: test.html?ecode=ur2");
-      exit;
-  } else {
-      $url2 = $match[0];
-      setcookie('url2', $url2, time()+3600);
-  }
-  */
-  //url判断结束
-  // $url1 = "http://music.163.com/#/playlist?id=18366105";
-  // $url2 = "http://music.163.com/#/playlist?id=123784616";
-  $url1 = isset($_POST['url1'])?$_POST['url1']:"http://music.163.com/#/playlist?id=8009";
-  $url2 = isset($_POST['url2'])?$_POST['url2']:"http://music.163.com/#/playlist?id=3248614";
+  // $smarty->caching        = true;           //开启缓存
+  // $smarty->cache_lifetime = 120;            //缓存时间
+  $url1 = isset($_REQUEST['url1'])?$_REQUEST['url1']:"http://music.163.com/#/playlist?id=8009";
+  $url2 = isset($_REQUEST['url2'])?$_REQUEST['url2']:"http://music.163.com/#/playlist?id=3248614";
   $songList = new PlayList();
   $listUrl1 = $songList->Analysis($url1);
   $listUrl2 = $songList->Analysis($url2);
@@ -74,7 +39,14 @@
   $url1DisplayInfo = $songList->similarDisplay($url1Per);
   $url2DisplayInfo = $songList->similarDisplay($url2Per);
   $unionDisplayInfo= $songList->similarDisplay($simiDis);
-
+  if ($listUrl1['playlistname'] == "网易云音乐<") {
+      $listUrl1['playlistname'] = "该歌单不存在";
+      $listUrl1['username']     = "";
+  }
+  if ($listUrl2['playlistname'] == "网易云音乐<") {
+      $listUrl2['playlistname'] = "该歌单不存在";
+      $listUrl2['username']     = "";
+  }
   $smarty->assign('listUrl1',$listUrl1);
   $smarty->assign('listUrl2',$listUrl2);
   $smarty->assign('url1Num',$url1Num);
@@ -89,6 +61,6 @@
   $smarty->assign('simiDis',$simiDis);
   $smarty->assign('simiDis',$simiDis);
   $smarty->assign('intersect',$intersect);
-  $smarty->display('test.html');
+  $smarty->display('tpl.html');
 
  ?>

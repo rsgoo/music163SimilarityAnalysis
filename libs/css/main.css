@@ -21,3 +21,9 @@ a:hover{
 .font12{
   font-size: 12px;
 }
+.black{
+  color: black;
+  font-size: 1.15em;
+}
+.error{
+  color:#d9534f;
