@@ -14,3 +14,5 @@
 
 > clone https://github.com/inscode/music163SimilarityAnalysis.git 到web目录下即可使用
 
+**程序效果**
+![image](https://static.oschina.net/uploads/img/201611/28184148_rdMY.png)
