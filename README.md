@@ -16,8 +16,8 @@
 
 >2：在浏览器中进入music163SimilarityAnalysis，如何两个两个你需要比较的歌单url即可
 
-！[](https://static.oschina.net/uploads/img/201611/28190241_fRgv.png "在这里输入图片标题")
+![](https://static.oschina.net/uploads/img/201611/28190241_fRgv.png)
 
 
 **程序效果**
-![](https://static.oschina.net/uploads/img/201611/28184148_rdMY.png)
+![image](https://static.oschina.net/uploads/img/201611/28184148_rdMY.png)
