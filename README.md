@@ -6,7 +6,7 @@
 
 相似度计算公式参照PHP [similar_text()](http://php.net/manual/zh/function.similar-text.php)函数
 
->  *相似度 = (A∩B)*2 / (A+B)**
+>  *相似度 = (A∩B)*2 / (A+B)
 
 
 
