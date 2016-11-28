@@ -20,8 +20,8 @@
   $url2Compare = $listUrl2;
   $url1Num  = count($listUrl1)-4;
   $url2Num  = count($listUrl2)-4;
-  $url1Per  = $url1Num >= $url2Num ? "100%" : intval(($url1Num/$url2Num)*100)."%";
-  $url2Per  = $url2Num >= $url1Num ? "100%" : intval(($url2Num/$url1Num)*100)."%";
+  $url1Per  = $url1Num >= $url2Num ? "100%" : round(($url1Num/$url2Num)*100,2)."%";
+  $url2Per  = $url2Num >= $url1Num ? "100%" : round(($url2Num/$url1Num)*100,2)."%";
   if ($url1Compare['userid'] = $url2Compare['userid']){
       for ($i=0; $i < 4; $i++) {
            array_pop($url1Compare);
