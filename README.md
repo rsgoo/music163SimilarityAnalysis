@@ -1,10 +1,5 @@
 #### 网易云音乐用户歌单内容相似度分析
 
-[PC端体验](http://inscode.applinzi.com/)
-
-
-[移动端体验](http://inscode.applinzi.com/mobile.php)
-
 ---
 **简介**：
 
